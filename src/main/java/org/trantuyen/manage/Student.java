@@ -10,7 +10,7 @@ public abstract class Student {
     private LocalDate birthday;
     private String yearOfAdmission;
 
-    private Integer score;
+    private Double score;
 
     private Map<Integer, List<Subject>> subjects;
     private Map<Integer, Double> learningOutcomes;
@@ -22,13 +22,13 @@ public abstract class Student {
         Double avgOfSemester = getSubjects().get(semester).stream()
                 .mapToDouble(Subject::getAvgScore)
                 .average().getAsDouble();
-        learningOutcomes.put(semester,avgOfSemester);
+        learningOutcomes.put(semester, avgOfSemester);
         return avgOfSemester;
     }
 
     public abstract String getTypeStudent();
 
-    public Student(Long id, String fullName, Integer score, LocalDate birthday, String yearOfAdmission, Map<Integer, List<Subject>> subjects, Map<Integer, Double> learningOutcomes) {
+    public Student(Long id, String fullName, Double score, LocalDate birthday, String yearOfAdmission, Map<Integer, List<Subject>> subjects, Map<Integer, Double> learningOutcomes) {
         this.id = id;
         this.fullName = fullName;
         this.score = score;
@@ -38,11 +38,11 @@ public abstract class Student {
         this.learningOutcomes = learningOutcomes;
     }
 
-    public Integer getScore() {
+    public Double getScore() {
         return score;
     }
 
-    public void setScore(Integer score) {
+    public void setScore(Double score) {
         this.score = score;
     }
 
@@ -92,5 +92,20 @@ public abstract class Student {
 
     public void setLearningOutcomes(Map<Integer, Double> learningOutcomes) {
         this.learningOutcomes = learningOutcomes;
+    }
+
+    @Override
+    public String toString() {
+        return "Sinh viên{" +
+                "Mã sinh viên=" + id +
+                ", Tên đầy đủ='" + fullName + "'}";
+    }
+
+    public String showDetail() {
+        return "Mã = " + id +
+                ", Tên đầy đủ = '" + fullName + '\'' +
+                ", Ngày sinh = " + birthday +
+                ", Năm vào học = '" + yearOfAdmission + '\'' +
+                ", Điểm đầu vào = " + score;
     }
 }

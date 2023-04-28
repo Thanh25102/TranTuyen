@@ -12,6 +12,7 @@ public class Department {
     }
 
     public Department(String code,String name, List<Student> students) {
+        this.code = code;
         this.name = name;
         this.students = students;
     }
@@ -44,5 +45,14 @@ public class Department {
         return students.stream()
                 .max(Comparator.comparing(Student::getScore))
                 .orElse(null);
+    }
+
+    @Override
+    public String toString() {
+        return "Department{" +
+                "code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", students=" + students +
+                '}';
     }
 }

@@ -17,7 +17,7 @@ public class OnlineStudent extends Student{
         return "sinh viên tại chức";
     }
 
-    public OnlineStudent(Long id, String fullName, Integer score, LocalDate birthday, String yearOfAdmission, Map<Integer, List<Subject>> subjects, Map<Integer, Double> learningOutcomes, String place) {
+    public OnlineStudent(Long id, String fullName, Double score, LocalDate birthday, String yearOfAdmission, Map<Integer, List<Subject>> subjects, Map<Integer, Double> learningOutcomes, String place) {
         super(id, fullName, score, birthday, yearOfAdmission, subjects, learningOutcomes);
         this.place = place;
     }

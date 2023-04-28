@@ -8,7 +8,7 @@ public class NormalStudent extends Student{
     public NormalStudent() {
     }
 
-    public NormalStudent(Long id, String fullName, Integer score, LocalDate birthday, String yearOfAdmission, Map<Integer, List<Subject>> subjects, Map<Integer, Double> learningOutcomes) {
+    public NormalStudent(Long id, String fullName, Double score, LocalDate birthday, String yearOfAdmission, Map<Integer, List<Subject>> subjects, Map<Integer, Double> learningOutcomes) {
         super(id, fullName, score, birthday, yearOfAdmission, subjects, learningOutcomes);
     }
 

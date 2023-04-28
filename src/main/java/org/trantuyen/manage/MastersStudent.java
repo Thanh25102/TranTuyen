@@ -19,7 +19,7 @@ public class MastersStudent extends Student{
         return "học viên cao học";
     }
 
-    public MastersStudent(Long id, String fullName, Integer score, LocalDate birthday, String yearOfAdmission, Map<Integer, List<Subject>> subjects, Map<Integer, Double> learningOutcomes, String almaMaster, LocalDate graduationDate, Float diplomaId, GraduationType graduationType) {
+    public MastersStudent(Long id, String fullName, Double score, LocalDate birthday, String yearOfAdmission, Map<Integer, List<Subject>> subjects, Map<Integer, Double> learningOutcomes, String almaMaster, LocalDate graduationDate, Float diplomaId, GraduationType graduationType) {
         super(id, fullName, score, birthday, yearOfAdmission, subjects, learningOutcomes);
         this.almaMaster = almaMaster;
         this.graduationDate = graduationDate;
