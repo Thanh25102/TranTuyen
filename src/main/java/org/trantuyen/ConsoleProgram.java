@@ -9,8 +9,8 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class ConsoleProgram {
-    Scanner scanner = new Scanner(System.in);
     private static ConsoleProgram ins;
+    Scanner scanner = new Scanner(System.in);
 
     private ConsoleProgram() {
     }

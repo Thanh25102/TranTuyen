@@ -18,16 +18,6 @@ public abstract class Student {
     public Student() {
     }
 
-    public Double getAvgScoreOfSemester(Integer semester) {
-        Double avgOfSemester = getSubjects().get(semester).stream()
-                .mapToDouble(Subject::getAvgScore)
-                .average().getAsDouble();
-        learningOutcomes.put(semester, avgOfSemester);
-        return avgOfSemester;
-    }
-
-    public abstract String getTypeStudent();
-
     public Student(Long id, String fullName, Double score, LocalDate birthday, String yearOfAdmission, Map<Integer, List<Subject>> subjects, Map<Integer, Double> learningOutcomes) {
         this.id = id;
         this.fullName = fullName;
@@ -37,6 +27,16 @@ public abstract class Student {
         this.subjects = subjects;
         this.learningOutcomes = learningOutcomes;
     }
+
+    public Double getAvgScoreOfSemester(Integer semester) {
+        Double avgOfSemester = getSubjects().get(semester).stream()
+                .mapToDouble(Subject::getAvgScore)
+                .average().getAsDouble();
+        learningOutcomes.put(semester, avgOfSemester);
+        return avgOfSemester;
+    }
+
+    public abstract String getTypeStudent();
 
     public Double getScore() {
         return score;
@@ -102,6 +102,6 @@ public abstract class Student {
     }
 
     public String showDetail() {
-        return  id + " - " + fullName + " - " + yearOfAdmission;
+        return id + " - " + fullName + " - " + yearOfAdmission;
     }
 }

@@ -11,7 +11,7 @@ public class Department {
     public Department() {
     }
 
-    public Department(String code,String name, List<Student> students) {
+    public Department(String code, String name, List<Student> students) {
         this.code = code;
         this.name = name;
         this.students = students;
@@ -41,7 +41,7 @@ public class Department {
         this.students = students;
     }
 
-    public Student highestScoreOfDepartment(){
+    public Student highestScoreOfDepartment() {
         return students.stream()
                 .max(Comparator.comparing(Student::getScore))
                 .orElse(null);

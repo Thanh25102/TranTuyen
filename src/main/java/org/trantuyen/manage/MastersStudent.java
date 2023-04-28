@@ -1,11 +1,10 @@
 package org.trantuyen.manage;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-public class MastersStudent extends Student{
+public class MastersStudent extends Student {
     private String almaMaster;
     private LocalDate graduationDate;
     private Float diplomaId;
@@ -14,17 +13,17 @@ public class MastersStudent extends Student{
     public MastersStudent() {
     }
 
-    @Override
-    public String getTypeStudent() {
-        return "học viên cao học";
-    }
-
     public MastersStudent(Long id, String fullName, Double score, LocalDate birthday, String yearOfAdmission, Map<Integer, List<Subject>> subjects, Map<Integer, Double> learningOutcomes, String almaMaster, LocalDate graduationDate, Float diplomaId, GraduationType graduationType) {
         super(id, fullName, score, birthday, yearOfAdmission, subjects, learningOutcomes);
         this.almaMaster = almaMaster;
         this.graduationDate = graduationDate;
         this.diplomaId = diplomaId;
         this.graduationType = graduationType;
+    }
+
+    @Override
+    public String getTypeStudent() {
+        return "học viên cao học";
     }
 
     public String getAlmaMaster() {
