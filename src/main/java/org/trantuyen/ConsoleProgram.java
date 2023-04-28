@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class ConsoleProgram {
     Scanner scanner = new Scanner(System.in);
@@ -178,26 +179,34 @@ public class ConsoleProgram {
 
     private void updateStudent() {
         System.out.println("Cập nhật thông tin sinh viên \n");
-        System.out.println("Nhập mã sinh viên cần cập nhật");
+        System.out.println("Nhập mã sinh viên cần cập nhật : ");
         int studentId = scanner.nextInt();
+        scanner.nextLine();
         Student student = Main.students.stream().filter(stu -> stu.getId() == studentId).findFirst().orElse(null);
         if (student == null) {
             System.out.println("Không tìm thấy sinh viên này ... ");
             return;
         }
-        Department department = null;
-        while (department == null) {
-            System.out.println("Nhập mã khoa : ");
-            String code = scanner.nextLine();
-            department = Main.departments2.stream().filter(dpt -> dpt.getCode().equals(code))
-                    .findFirst().orElse(null);
-            if (department == null) System.out.println("Mã khoa không tồn tại vui lòng nhập lại");
-        }
         System.out.println("Nhập họ và tên : ");
+        String fullName = scanner.nextLine();
         System.out.println("Nhập ngày tháng năm sinh định dạng dd/MM/yyyy : ");
+        String birthDay = scanner.nextLine();
         System.out.println("Nhập điểm đầu vào : ");
+        String score = scanner.nextLine();
+        System.out.println("Nhập năm nhập học : ");
+        String year = scanner.nextLine();
 
+        if (!fullName.trim().equalsIgnoreCase("boqua")) student.setFullName(fullName);
+        if (!birthDay.trim().equalsIgnoreCase("boqua")) {
+            String[] date = birthDay.split("/");
+            LocalDate localDate = LocalDate.of(Integer.parseInt(date[2]), Integer.parseInt(date[1]), Integer.parseInt(date[0]));
+            student.setBirthday(localDate);
+        }
+        if (!score.trim().equalsIgnoreCase("boqua")) student.setScore(Double.parseDouble(score));
+        if (!year.trim().equalsIgnoreCase("boqua")) student.setYearOfAdmission(year);
 
+        System.out.println(student);
+        Main.students = Main.students.stream().map(stu -> stu.getId() == student.getId() ? student : stu).collect(Collectors.toList());
     }
 
     private void importFile() {
