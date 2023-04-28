@@ -60,17 +60,18 @@ public class ConsoleProgram {
                         break;
                 }
             } catch (Exception e) {
-                System.out.println(e);
-                isExit = true;
-                System.out.println("### Da co loi xay ra vui long thuc hien lai thao tac ###");
+                System.out.println("""
+                        ### Da co loi xay ra vui long thuc hien lai thao tac ###định
+                        Vui Lòng nhập đúng kiểu dữ liệu quy 
+                        """);
                 System.out.println("\n");
             }
         } while (!isExit);
     }
 
     private void showStudents() {
-        System.out.println("Nhập mã khoa muốn hiển thị danh sách sinh viên (vd: CNTT,...) \n");
         scanner.nextLine();
+        System.out.println("Nhập mã khoa muốn hiển thị danh sách sinh viên (vd: CNTT,...) \n");
         String departmentCode = scanner.nextLine();
         Department departments = Main.departments2.stream()
                 .filter(department ->

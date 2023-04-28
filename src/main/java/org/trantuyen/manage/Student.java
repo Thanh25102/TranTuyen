@@ -102,10 +102,6 @@ public abstract class Student {
     }
 
     public String showDetail() {
-        return "Mã = " + id +
-                ", Tên đầy đủ = '" + fullName + '\'' +
-                ", Ngày sinh = " + birthday +
-                ", Năm vào học = '" + yearOfAdmission + '\'' +
-                ", Điểm đầu vào = " + score;
+        return  id + " - " + fullName + " - " + yearOfAdmission;
     }
 }
